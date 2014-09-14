@@ -6,23 +6,18 @@
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 		<title>Instant Retreat</title>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
 
-		<style type="text/css">
-			html {
-				<?php
-					$imagesDir = 'images/';
-					$images = glob($imagesDir . '*.{gif}', GLOB_BRACE);
-					$randomImage = $images[array_rand($images)];
-					print "background: url(" . $randomImage . ") no-repeat center center fixed;";
-				?>
-
-				-webkit-background-size: cover;
-				-moz-background-size: cover;
-				-o-background-size: cover;
-				background-size: cover;
-			}
-		</style>
 	</head>
 	<body>
+		<script type="text/javascript">
+		<?php
+			$imagesDir = 'images/';
+			$images = glob($imagesDir . '*.{gif}', GLOB_BRACE);
+			$randomImage = $images[array_rand($images)];
+		?>
+			$.backstretch("<?=$randomImage?>");
+		</script>
 	</body>
 </html>
